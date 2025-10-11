@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Juego rápido</title>
+  <style>
+    body { text-align: center; font-family: Arial; margin-top: 50px; }
+    #btn { padding: 15px; font-size: 18px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>¡Atrápame si puedes! 🎮</h1>
+  <button id="btn">Haz clic aquí</button>
+  <p id="mensaje"></p>
+
+  <script>
+    const btn = document.getElementById("btn");
+    const msg = document.getElementById("mensaje");
+
+    function moverBoton() {
+      btn.style.position = "absolute";
+      btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+      btn.style.top = Math.random() * (window.innerHeight - 100) + "px";
+    }
+
+    btn.addEventListener("click", () => {
+      msg.innerText = "¡Ganaste! 😎";
+      setTimeout(() => { msg.innerText = ""; moverBoton(); }, 1000);
+    });
+
+    setInterval(moverBoton, 2000); // se mueve cada 2 segundos
+  </script>
+</body>
+</html>
